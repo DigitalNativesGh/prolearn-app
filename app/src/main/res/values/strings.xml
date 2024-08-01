@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">prolearn</string>
+    <string name="title_activity_sign_in">SignIn</string>
+    <string name="sign_in">Sign in</string>
+    <string name="welcome_back">Hi welcome back</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="forgot">Forgot Password</string>
+    <string name="or">Or sign in with</string>
+    <string name="account_d">Don\'t have an account</string>
+    <string name="new_password"> New Password</string>
+    <string name="new_password_desc">Enter your new password</string>
+
+    <string name="sign_up">Sign up</string>
+
+    <string name="email_placeholder">lee@gmail.com</string>
+    <string name="title_activity_sign_up">SignUp</string>
+    <string name="sign_up_desc">Fill the information below with your social</string>
+    <string name="title_activity_new_password">NewPassword</string>
+
+</resources>
