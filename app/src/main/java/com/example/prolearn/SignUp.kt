@@ -294,10 +294,9 @@ fun SignUpForm(context: Context) {
 
         Spacer(modifier = Modifier.height(16.dp))
 
-
         Button(
             onClick = {
-                val intent = Intent(context, NewPassword::class.java)
+                val intent = Intent(context, VerifyCode::class.java)
                 context.startActivity(intent)
             },
             colors = ButtonDefaults.buttonColors(

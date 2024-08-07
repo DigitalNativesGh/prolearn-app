@@ -52,6 +52,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.prolearn.ui.theme.ProlearnTheme
 import androidx.compose.foundation.layout.size
+import androidx.compose.ui.platform.LocalContext
 
 class SignIn : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -66,8 +67,6 @@ class SignIn : ComponentActivity() {
             }
         }
     }
-
-
 }
 
 @Composable
@@ -87,8 +86,6 @@ fun SignIn(name: String, modifier: Modifier = Modifier) {
                     .padding(top = 40.dp),
                 fontWeight = FontWeight.Medium,
                 fontSize = 24.sp
-
-
             )
             Text(
                 text = stringResource(id = R.string.welcome_back),
@@ -100,14 +97,9 @@ fun SignIn(name: String, modifier: Modifier = Modifier) {
 
                 )
 
-
-
-
         }
     }
 }
-
-
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -115,7 +107,16 @@ fun LoginForm(context: Context) {
     var username by remember { mutableStateOf("") }
     var password by remember { mutableStateOf("") }
     var errorMessage by remember { mutableStateOf("") }
+    val context = LocalContext.current
+    fun NewPassword(context: Context) {
+        val intent = Intent(context, NewPassword::class.java)
+        context.startActivity(intent)
+    }
 
+    fun SignUp(context: Context) {
+        val intent = Intent(context, SignUp::class.java)
+        context.startActivity(intent)
+    }
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -196,10 +197,11 @@ fun LoginForm(context: Context) {
         Text(
             modifier = Modifier
                 .align(Alignment.End)
+                .padding(bottom = 10.dp)
                 .clickable {
+                    NewPassword(context = context)
+                },
 
-                }
-                .padding(bottom = 10.dp),
             text = "Forgot password",
             color = colorResource(id = R.color.blue),
             fontWeight = FontWeight.Medium,
@@ -298,7 +300,6 @@ fun LoginForm(context: Context) {
 
         }
 
-
         Spacer(modifier = Modifier.height(100.dp))
         Row(
             modifier = Modifier
@@ -310,9 +311,10 @@ fun LoginForm(context: Context) {
             Text(
                 text = "Signup",
                 color = colorResource(id = R.color.blue),
-                modifier = Modifier.clickable {
-                    // Handle signup click
-                }
+                modifier = Modifier
+                    .clickable {
+                    SignUp(context)
+                },
             )
         }
     }
