@@ -216,7 +216,8 @@ fun SignUpForm(context: Context) {
             singleLine = true,
             trailingIcon = {
                 IconButton(onClick = {  }) {
-                    Icon(painter = painterResource(id=R.drawable.outline_remove_red_eye_24), contentDescription ="password" )
+                    Icon(painter = painterResource(id=R.drawable.outline_remove_red_eye_24),
+                        contentDescription ="password" )
                 }
             },
             visualTransformation = PasswordVisualTransformation(),

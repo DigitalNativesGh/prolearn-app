@@ -112,19 +112,6 @@ fun TopBarWithBackArrow(onBackClick: () -> Unit) {
 }
 
 
-@Preview(showBackground = true)
-@Composable
-fun PreviewTopBarWithBackArrow() {
-    TopBarWithBackArrow {
-        // Handle back arrow click
-    }
-}
-
-
-
-
-
-
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun ProfileUpdateForm(context: Context) {
@@ -306,7 +293,8 @@ fun ProfileUpdateForm(context: Context) {
 
         Button(
             onClick = {
-
+                val intent = Intent(context, Home::class.java)
+                context.startActivity(intent)
             },
             colors = ButtonDefaults.buttonColors(
                 containerColor = colorResource(id = R.color.blue),
