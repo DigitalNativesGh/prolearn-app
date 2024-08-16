@@ -47,6 +47,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.compose.ui.input.key.Key.Companion.Home
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
@@ -293,7 +294,7 @@ fun ProfileUpdateForm(context: Context) {
 
         Button(
             onClick = {
-                val intent = Intent(context, Home::class.java)
+                val intent = Intent(context, Dashboard::class.java)
                 context.startActivity(intent)
             },
             colors = ButtonDefaults.buttonColors(

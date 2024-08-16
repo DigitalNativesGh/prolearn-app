@@ -13,9 +13,40 @@
         android:theme="@style/Theme.Prolearn"
         tools:targetApi="31">
         <activity
-            android:name=".Home"
+            android:name=".MyCourses"
             android:exported="false"
-            android:label="@string/title_activity_home"
+            android:label="@string/title_activity_my_courses"
+            android:theme="@style/Theme.Prolearn" />
+        <activity
+            android:name=".Search"
+            android:exported="true"
+            android:label="@string/title_activity_search"
+            android:theme="@style/Theme.Prolearn">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".SpecialOffers"
+            android:exported="false"
+            android:label="@string/title_activity_special_offers"
+            android:theme="@style/Theme.Prolearn"></activity>
+        <activity
+            android:name=".Recommended"
+            android:exported="false"
+            android:label="@string/title_activity_recommended"
+            android:theme="@style/Theme.Prolearn" />
+        <activity
+            android:name=".BestSellers"
+            android:exported="false"
+            android:label="@string/title_activity_best_sellers"
+            android:theme="@style/Theme.Prolearn" />
+        <activity
+            android:name=".Dashboard"
+            android:exported="false"
+            android:label="@string/title_activity_dashboard"
             android:theme="@style/Theme.Prolearn" />
         <activity
             android:name=".VerifyCode"
@@ -44,15 +75,9 @@
             android:theme="@style/Theme.Prolearn" />
         <activity
             android:name=".MainActivity"
-            android:exported="true"
+            android:exported="false"
             android:label="@string/app_name"
-            android:theme="@style/Theme.Prolearn.Splash">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+            android:theme="@style/Theme.Prolearn.Splash" />
     </application>
 
 </manifest>

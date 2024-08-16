@@ -21,5 +21,11 @@
     <string name="verifyDesc">Please enter code we just sent to email</string>
     <string name="verifyEmail">lee@gmail.com</string>
     <string name="title_activity_home">Home</string>
+    <string name="title_activity_dashboard">Dashboard</string>
+    <string name="title_activity_best_sellers">BestSellers</string>
+    <string name="title_activity_recommended">Recommended</string>
+    <string name="title_activity_special_offers">SpecialOffers</string>
+    <string name="title_activity_search">Search</string>
+    <string name="title_activity_my_courses">MyCourses</string>
 
 </resources>

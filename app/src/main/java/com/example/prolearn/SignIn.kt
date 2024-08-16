@@ -252,7 +252,6 @@ fun LoginForm(context: Context) {
             )
         }
 
-
         Row(
             modifier = Modifier
                 .fillMaxWidth()
