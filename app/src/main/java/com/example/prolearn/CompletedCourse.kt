@@ -67,7 +67,7 @@ import androidx.compose.ui.unit.sp
 import com.example.prolearn.ui.theme.ProlearnTheme
 
 
-data class MyCoursesCourseItemData(
+data class CompletedCourseItemData(
     val courseImgId: Int,
     val courseTitle: String,
     val coursePrice: String,
@@ -77,7 +77,7 @@ data class MyCoursesCourseItemData(
     val courseCategory: String,
 )
 
-class MyCourses : ComponentActivity() {
+class CompletedCourse : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -86,7 +86,7 @@ class MyCourses : ComponentActivity() {
                 Surface(
                     modifier = Modifier.fillMaxSize(),
                 ) {
-                    MyCoursesScreen()
+                    CompletedCourseScreen()
                 }
 
             }
@@ -95,11 +95,11 @@ class MyCourses : ComponentActivity() {
 }
 
 @Composable
-fun MyCoursesScreen() {
+fun CompletedCourseScreen() {
     Scaffold(
 
     ) { paddingValues ->
-        MyCourseScreen(Modifier.padding(paddingValues))
+        CompletedScreen(Modifier.padding(paddingValues))
     }
 }
 
@@ -107,14 +107,14 @@ fun MyCoursesScreen() {
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun MyCourseScreen(modifier: Modifier = Modifier) {
+fun CompletedScreen(modifier: Modifier = Modifier) {
 
     var searchText by remember { mutableStateOf("") }
     val scrollState = rememberScrollState()
 
     Scaffold(
         topBar = {
-            MyCoursesAppBar(
+            CompletedAppBar(
                 onBackClick = {},
                 onSearchClick = {  },
                 onMoreClick = {  }
@@ -129,7 +129,7 @@ fun MyCourseScreen(modifier: Modifier = Modifier) {
 
 
             Box (modifier = Modifier.padding(top=100.dp, bottom = 60.dp)){
-                MyCoursesCourseVert()
+                CompletedVert()
             }
         }
     }
@@ -140,7 +140,7 @@ fun MyCourseScreen(modifier: Modifier = Modifier) {
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun MyCoursesAppBar(
+fun CompletedAppBar(
     onBackClick: () -> Unit,
     onSearchClick: () -> Unit,
     onMoreClick: () -> Unit
@@ -196,9 +196,9 @@ fun MyCoursesAppBar(
 
 
 @Composable
-fun MyCoursesCourseVert() {
+fun CompletedVert() {
     val items = listOf(
-        MyCoursesCourseItemData(
+        CompletedCourseItemData(
             R.drawable.student_one_cover,
             "Accounting",
             "$80",
@@ -207,7 +207,7 @@ fun MyCoursesCourseVert() {
             "4.3",
             "Business"
         ),
-        MyCoursesCourseItemData(
+        CompletedCourseItemData(
             R.drawable.student_two_cover,
             "Kotlin",
             "$80",
@@ -216,7 +216,7 @@ fun MyCoursesCourseVert() {
             "4.3",
             "Android"
         ),
-        MyCoursesCourseItemData(
+        CompletedCourseItemData(
             R.drawable.student_three_cover,
             "Regulation",
             "$80",
@@ -225,7 +225,7 @@ fun MyCoursesCourseVert() {
             "4.3",
             "Politics"
         ),
-        MyCoursesCourseItemData(
+        CompletedCourseItemData(
             R.drawable.student_two_cover,
             "Accounting",
             "$80",
@@ -234,7 +234,7 @@ fun MyCoursesCourseVert() {
             "4.3",
             "Business"
         ),
-        MyCoursesCourseItemData(
+        CompletedCourseItemData(
             R.drawable.student_one_cover,
             "Accounting",
             "$80",
@@ -252,42 +252,19 @@ fun MyCoursesCourseVert() {
             .padding(0.dp)
     ) {
         items.forEach { item ->
-            MyCoursesVertCardItem(item)
+            CompletedVertCardItem(item)
         }
     }
 }
 
 
-fun Modifier.dashedBorder(
-    color: Color,
-    strokeWidth: Dp = 1.dp,
-    dashLength: Dp = 4.dp,
-    gapLength: Dp = 4.dp,
-    cornerRadius: Dp = 0.dp
-) = this.then(
-    Modifier.drawBehind {
-        val stroke = Stroke(
-            width = strokeWidth.toPx(),
-            pathEffect = PathEffect.dashPathEffect(
-                floatArrayOf(dashLength.toPx(), gapLength.toPx()),
-                0f
-            )
-        )
-        drawRoundRect(
-            color = color,
-            size = size,
-            style = stroke,
-            cornerRadius = androidx.compose.ui.geometry.CornerRadius(cornerRadius.toPx())
-        )
-    }
-)
 
 @Composable
-fun MyCoursesVertCardItem(data: MyCoursesCourseItemData) {
+fun CompletedVertCardItem(data: CompletedCourseItemData) {
     Card(
         modifier = Modifier
             .fillMaxWidth()
-            .height(200.dp)
+            .height(150.dp)
             .padding(start = 20.dp, top = 10.dp, end = 20.dp),
         colors = CardDefaults.cardColors(containerColor = colorResource(id = R.color.white)),
         elevation = CardDefaults.cardElevation(3.dp)
@@ -400,7 +377,7 @@ fun MyCoursesVertCardItem(data: MyCoursesCourseItemData) {
                                 )
                             }
                             Text(
-                                text = "6/10",
+                                text = "10/10",
                                 color = colorResource(id = R.color.grey),
                                 fontSize = 16.sp
                             )
@@ -411,62 +388,7 @@ fun MyCoursesVertCardItem(data: MyCoursesCourseItemData) {
                 }
             }
 
-            Box(
-                modifier = Modifier
-                    .padding(start = 8.dp, end = 8.dp, bottom = 8.dp)
-                    .dashedBorder(
-                        color = colorResource(id = R.color.green),
-                        strokeWidth = 2.dp,
-                        dashLength = 8.dp,
-                        gapLength = 4.dp,
-                        cornerRadius = 3.dp
-                    )
-                    .clip(RoundedCornerShape(6.dp))
-                    .background(colorResource(id = R.color.white))
-            ) {
-                Row(
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .padding(5.dp),
-                    horizontalArrangement = Arrangement.SpaceBetween,
-                ) {
-                    Row {
-                        Text(
-                            text = "Pass Exam To Get",
-                            fontSize = 18.sp,
-                            color = colorResource(id = R.color.grey),
-                            fontWeight = FontWeight.Medium,
 
-                            )
-
-                    }
-                    Box(
-                        modifier = Modifier
-                            .width(100.dp)
-                            .height(30.dp)
-                            .padding(2.dp)
-                            .dashedBorder(
-                                color = colorResource(id = R.color.blue),
-                                strokeWidth = 2.dp,
-                                dashLength = 8.dp,
-                                gapLength = 4.dp,
-                                cornerRadius = 3.dp
-                            )
-
-                            .clip(RoundedCornerShape(6.dp))
-                            .background(colorResource(id = R.color.light_blue)),
-                            contentAlignment = Alignment.Center
-                    ) {
-                        Text(
-                            text = "Best Seller",
-                            modifier = Modifier.align(Alignment.Center),
-                            color = colorResource(id = R.color.blue),
-                            fontSize = 14.sp
-                        )
-                    }
-
-                }
-            }
         }
     }
 }

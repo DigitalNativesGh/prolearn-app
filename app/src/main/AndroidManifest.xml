@@ -13,14 +13,9 @@
         android:theme="@style/Theme.Prolearn"
         tools:targetApi="31">
         <activity
-            android:name=".MyCourses"
-            android:exported="false"
-            android:label="@string/title_activity_my_courses"
-            android:theme="@style/Theme.Prolearn" />
-        <activity
-            android:name=".Search"
+            android:name=".CompletedCourse"
             android:exported="true"
-            android:label="@string/title_activity_search"
+            android:label="@string/title_activity_completed_course"
             android:theme="@style/Theme.Prolearn">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -29,10 +24,22 @@
             </intent-filter>
         </activity>
         <activity
+            android:name=".MyCourses"
+            android:exported="false"
+            android:label="@string/title_activity_my_courses"
+            android:theme="@style/Theme.Prolearn">
+
+        </activity>
+        <activity
+            android:name=".Search"
+            android:exported="false"
+            android:label="@string/title_activity_search"
+            android:theme="@style/Theme.Prolearn"></activity>
+        <activity
             android:name=".SpecialOffers"
             android:exported="false"
             android:label="@string/title_activity_special_offers"
-            android:theme="@style/Theme.Prolearn"></activity>
+            android:theme="@style/Theme.Prolearn" />
         <activity
             android:name=".Recommended"
             android:exported="false"

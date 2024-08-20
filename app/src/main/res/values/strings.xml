@@ -27,5 +27,6 @@
     <string name="title_activity_special_offers">SpecialOffers</string>
     <string name="title_activity_search">Search</string>
     <string name="title_activity_my_courses">MyCourses</string>
+    <string name="title_activity_completed_course">CompletedCourse</string>
 
 </resources>
