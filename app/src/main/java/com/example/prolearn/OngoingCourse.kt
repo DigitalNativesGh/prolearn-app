@@ -36,9 +36,14 @@ import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.LinearProgressIndicator
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Surface
+import androidx.compose.material3.Tab
+import androidx.compose.material3.TabRow
+import androidx.compose.material3.TabRowDefaults
+import androidx.compose.material3.TabRowDefaults.tabIndicatorOffset
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextFieldDefaults
 import androidx.compose.material3.TopAppBar
@@ -67,7 +72,7 @@ import androidx.compose.ui.unit.sp
 import com.example.prolearn.ui.theme.ProlearnTheme
 
 
-data class CompletedCourseItemData(
+data class OngoingCourseItemData(
     val courseImgId: Int,
     val courseTitle: String,
     val coursePrice: String,
@@ -77,7 +82,7 @@ data class CompletedCourseItemData(
     val courseCategory: String,
 )
 
-class CompletedCourse : ComponentActivity() {
+class OngoingCourse : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -86,7 +91,7 @@ class CompletedCourse : ComponentActivity() {
                 Surface(
                     modifier = Modifier.fillMaxSize(),
                 ) {
-                    CompletedCourseScreen()
+                    OngoingCourseScreen()
                 }
 
             }
@@ -95,11 +100,11 @@ class CompletedCourse : ComponentActivity() {
 }
 
 @Composable
-fun CompletedCourseScreen() {
+fun OngoingCourseScreen() {
     Scaffold(
 
     ) { paddingValues ->
-        CompletedScreen(Modifier.padding(paddingValues))
+        OngoingCourse(Modifier.padding(paddingValues))
     }
 }
 
@@ -107,7 +112,7 @@ fun CompletedCourseScreen() {
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun CompletedScreen(modifier: Modifier = Modifier) {
+fun OngoingCourse(modifier: Modifier = Modifier) {
 
     var searchText by remember { mutableStateOf("") }
     val scrollState = rememberScrollState()
@@ -123,16 +128,18 @@ fun CompletedScreen(modifier: Modifier = Modifier) {
 
 
             Box (modifier = Modifier.padding(top=10.dp, bottom = 60.dp)){
-                CompletedVert()
+                OngoingCourseVert()
             }
         }
     }
 }
 
+
+
 @Composable
-fun CompletedVert() {
+fun OngoingCourseVert() {
     val items = listOf(
-        CompletedCourseItemData(
+        OngoingCourseItemData(
             R.drawable.student_one_cover,
             "Accounting",
             "$80",
@@ -141,7 +148,7 @@ fun CompletedVert() {
             "4.3",
             "Business"
         ),
-        CompletedCourseItemData(
+        OngoingCourseItemData(
             R.drawable.student_two_cover,
             "Kotlin",
             "$80",
@@ -150,7 +157,7 @@ fun CompletedVert() {
             "4.3",
             "Android"
         ),
-        CompletedCourseItemData(
+        OngoingCourseItemData(
             R.drawable.student_three_cover,
             "Regulation",
             "$80",
@@ -159,7 +166,7 @@ fun CompletedVert() {
             "4.3",
             "Politics"
         ),
-        CompletedCourseItemData(
+        OngoingCourseItemData(
             R.drawable.student_two_cover,
             "Accounting",
             "$80",
@@ -168,7 +175,7 @@ fun CompletedVert() {
             "4.3",
             "Business"
         ),
-        CompletedCourseItemData(
+        OngoingCourseItemData(
             R.drawable.student_one_cover,
             "Accounting",
             "$80",
@@ -186,19 +193,42 @@ fun CompletedVert() {
             .padding(0.dp)
     ) {
         items.forEach { item ->
-            CompletedVertCardItem(item)
+            OngoingCourseCardItem(item)
         }
     }
 }
 
 
+fun Modifier.dashedBorder(
+    color: Color,
+    strokeWidth: Dp = 1.dp,
+    dashLength: Dp = 4.dp,
+    gapLength: Dp = 4.dp,
+    cornerRadius: Dp = 0.dp
+) = this.then(
+    Modifier.drawBehind {
+        val stroke = Stroke(
+            width = strokeWidth.toPx(),
+            pathEffect = PathEffect.dashPathEffect(
+                floatArrayOf(dashLength.toPx(), gapLength.toPx()),
+                0f
+            )
+        )
+        drawRoundRect(
+            color = color,
+            size = size,
+            style = stroke,
+            cornerRadius = androidx.compose.ui.geometry.CornerRadius(cornerRadius.toPx())
+        )
+    }
+)
 
 @Composable
-fun CompletedVertCardItem(data: CompletedCourseItemData) {
+fun OngoingCourseCardItem(data: OngoingCourseItemData) {
     Card(
         modifier = Modifier
             .fillMaxWidth()
-            .height(150.dp)
+            .height(200.dp)
             .padding(start = 20.dp, top = 10.dp, end = 20.dp),
         colors = CardDefaults.cardColors(containerColor = colorResource(id = R.color.white)),
         elevation = CardDefaults.cardElevation(3.dp)
@@ -301,7 +331,7 @@ fun CompletedVertCardItem(data: CompletedCourseItemData) {
                                     .background(colorResource(id = R.color.light_grey))
                             ) {
                                 LinearProgressIndicator(
-                                    progress = 1f,
+                                    progress = 0.5f,
                                     color = colorResource(id = R.color.blue),
                                     trackColor = Color.Transparent,
                                     modifier = Modifier
@@ -311,7 +341,7 @@ fun CompletedVertCardItem(data: CompletedCourseItemData) {
                                 )
                             }
                             Text(
-                                text = "10/10",
+                                text = "6/10",
                                 color = colorResource(id = R.color.grey),
                                 fontSize = 16.sp
                             )
@@ -322,9 +352,67 @@ fun CompletedVertCardItem(data: CompletedCourseItemData) {
                 }
             }
 
+            Box(
+                modifier = Modifier
+                    .padding(start = 8.dp, end = 8.dp, bottom = 8.dp)
+                    .dashedBorder(
+                        color = colorResource(id = R.color.green),
+                        strokeWidth = 2.dp,
+                        dashLength = 8.dp,
+                        gapLength = 4.dp,
+                        cornerRadius = 3.dp
+                    )
+                    .clip(RoundedCornerShape(6.dp))
+                    .background(colorResource(id = R.color.white))
+            ) {
+                Row(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(5.dp),
+                    horizontalArrangement = Arrangement.SpaceBetween,
+                ) {
+                    Row {
+                        Text(
+                            text = "Pass Exam To Get",
+                            fontSize = 18.sp,
+                            color = colorResource(id = R.color.grey),
+                            fontWeight = FontWeight.Medium,
 
+                            )
+
+                    }
+                    Box(
+                        modifier = Modifier
+                            .width(100.dp)
+                            .height(30.dp)
+                            .padding(2.dp)
+                            .dashedBorder(
+                                color = colorResource(id = R.color.blue),
+                                strokeWidth = 2.dp,
+                                dashLength = 8.dp,
+                                gapLength = 4.dp,
+                                cornerRadius = 3.dp
+                            )
+
+                            .clip(RoundedCornerShape(6.dp))
+                            .background(colorResource(id = R.color.light_blue)),
+                        contentAlignment = Alignment.Center
+                    ) {
+                        Text(
+                            text = "Best Seller",
+                            modifier = Modifier.align(Alignment.Center),
+                            color = colorResource(id = R.color.blue),
+                            fontSize = 14.sp
+                        )
+                    }
+
+
+
+
+
+
+                }
+            }
         }
     }
 }
-
-

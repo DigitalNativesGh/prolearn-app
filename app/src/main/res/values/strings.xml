@@ -28,5 +28,7 @@
     <string name="title_activity_search">Search</string>
     <string name="title_activity_my_courses">MyCourses</string>
     <string name="title_activity_completed_course">CompletedCourse</string>
+    <string name="title_activity_course_toptab">CourseToptab</string>
+    <string name="title_activity_ongoing_course">OngoingCourse</string>
 
 </resources>
