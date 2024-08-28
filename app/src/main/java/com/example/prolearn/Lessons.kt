@@ -166,7 +166,7 @@ fun Lessons() {
 
                         Icon(
                             painter = painterResource(id = R.drawable.play_icon),
-                            contentDescription = "Favorite Icon",
+                            contentDescription = "",
                             tint = colorResource(id = R.color.blue),
                             modifier = Modifier
                                 .align(Alignment.Center)
