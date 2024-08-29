@@ -22,13 +22,18 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.KeyboardArrowLeft
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
+import androidx.compose.material3.TopAppBar
+import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -41,6 +46,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.prolearn.ui.theme.ProlearnTheme
@@ -65,10 +71,72 @@ class QuizResult : ComponentActivity() {
 @Composable
 fun QuizResultScreen() {
     Scaffold(
+        topBar = {
+            QuizResultAppBar(
+                onBackClick = {},
+                onSearchClick = {  },
+                onMoreClick = {  }
+            )
+        }
 
     ) { paddingValues ->
         QuizResults(Modifier.padding(paddingValues))
     }
+}
+@OptIn(ExperimentalMaterial3Api::class)
+@Composable
+fun QuizResultAppBar(
+    onBackClick: () -> Unit,
+    onSearchClick: () -> Unit,
+    onMoreClick: () -> Unit
+) {
+    TopAppBar(
+        title = {
+            Text(
+                text = "",
+                fontSize = 23.sp,
+                textAlign = TextAlign.Center,
+                color = colorResource(id = R.color.grey),
+                modifier = Modifier.fillMaxWidth(),
+                fontWeight = FontWeight.Medium
+
+            )
+        },
+        navigationIcon = {
+            IconButton(onClick = onBackClick) {
+                Icon(
+                    modifier = Modifier
+                        .size(40.dp),
+                    imageVector = Icons.Default.KeyboardArrowLeft,
+                    contentDescription = "Back",
+                    tint = colorResource(id = R.color.grey)
+                )
+            }
+        },
+        actions = {
+            IconButton(onClick = onSearchClick) {
+                Icon(
+                    modifier = Modifier
+                        .size(24.dp),
+                    painter = painterResource(id = R.drawable.cart),
+                    contentDescription = "cart",
+                    tint = colorResource(id = R.color.grey)
+                )
+            }
+            IconButton(onClick = onMoreClick) {
+                Icon(
+                    modifier = Modifier
+                        .size(24.dp),
+                    painter = painterResource(id = R.drawable.notification_icon),
+                    contentDescription = "Notification",
+                    tint = colorResource(id = R.color.grey)
+                )
+            }
+        },
+        colors = TopAppBarDefaults.smallTopAppBarColors(
+            containerColor = colorResource(id = R.color.white)
+        )
+    )
 }
 
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
