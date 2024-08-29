@@ -51,7 +51,6 @@ class CourseDetail : ComponentActivity() {
                Surface {
                    StackedBoxes()
                }
-
             }
         }
     }
@@ -123,7 +122,7 @@ fun StackedBoxes() {
             contentDescription = "Background Image",
             contentScale = ContentScale.Crop,
             modifier = Modifier.fillMaxSize()
-            )
+        )
 
         CourseDetailAppBar(
             onBackClick = {},

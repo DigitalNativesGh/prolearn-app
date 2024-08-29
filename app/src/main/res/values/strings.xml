@@ -40,5 +40,7 @@
     <string name="title_activity_purchase_success">PurchaseSuccess</string>
     <string name="title_activity_quiz_result">QuizResult</string>
     <string name="title_activity_quiz">Quiz</string>
+    <string name="title_activity_topic_by_ai">TopicByAI</string>
+    <string name="title_activity_profile">Profile</string>
 
 </resources>
