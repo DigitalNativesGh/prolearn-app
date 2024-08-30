@@ -256,7 +256,53 @@ fun ProfileContent() {
                     Row(
                         modifier = Modifier
                             .fillMaxWidth()
-                            .padding(start = 20.dp, end = 20.dp, top = 5.dp),
+                            .padding(start = 40.dp, end = 40.dp, top = 5.dp),
+                        horizontalArrangement = Arrangement.SpaceBetween,
+                        verticalAlignment = Alignment.CenterVertically
+
+
+                    ) {
+                        Row (
+                            modifier = Modifier
+                                .padding(start = 0.dp, end = 20.dp, top = 5.dp),
+                            verticalAlignment = Alignment.CenterVertically
+
+                        ){
+                            Icon(
+                                modifier = Modifier
+                                    .size(30.dp)
+                                    .padding(end = 10.dp),
+                                painter = painterResource(id = R.drawable.storage),
+                                contentDescription = "",
+                                tint = colorResource(id = R.color.grey)
+
+                            )
+
+                            Text(
+                                text = "YOUR BALANCE",
+                                fontSize = 18.sp,
+                                color = colorResource(id = R.color.blue),
+                                fontWeight = FontWeight.SemiBold,
+
+                                )
+                        }
+                        Text(
+                            text = "2000",
+                            fontSize = 20.sp,
+                            color = colorResource(id = R.color.blue),
+                            fontWeight = FontWeight.SemiBold,
+
+                            )
+                    }
+                }
+                Box(
+                    modifier = Modifier
+                        .padding(top = 25.dp)
+                ) {
+                    Row(
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .padding(start = 0.dp, end = 0.dp, top = 5.dp),
                         horizontalArrangement = Arrangement.SpaceBetween,
                         verticalAlignment = Alignment.CenterVertically
 
@@ -304,7 +350,7 @@ fun ProfileContent() {
                     Row(
                         modifier = Modifier
                             .fillMaxWidth()
-                            .padding(start = 20.dp, end = 20.dp, top = 5.dp),
+                            .padding(start = 0.dp, end = 0.dp, top = 5.dp),
                         horizontalArrangement = Arrangement.SpaceBetween,
                         verticalAlignment = Alignment.CenterVertically
 
@@ -353,7 +399,7 @@ fun ProfileContent() {
                     Row(
                         modifier = Modifier
                             .fillMaxWidth()
-                            .padding(start = 20.dp, end = 20.dp, top = 5.dp),
+                            .padding(start = 0.dp, end = 0.dp, top = 5.dp),
                         horizontalArrangement = Arrangement.SpaceBetween,
                         verticalAlignment = Alignment.CenterVertically
 
@@ -401,7 +447,7 @@ fun ProfileContent() {
                     Row(
                         modifier = Modifier
                             .fillMaxWidth()
-                            .padding(start = 20.dp, end = 20.dp, top = 5.dp),
+                            .padding(start = 0.dp, end = 0.dp, top = 5.dp),
                         horizontalArrangement = Arrangement.SpaceBetween,
                         verticalAlignment = Alignment.CenterVertically
 
@@ -448,7 +494,7 @@ fun ProfileContent() {
                     Row(
                         modifier = Modifier
                             .fillMaxWidth()
-                            .padding(start = 20.dp, end = 20.dp, top = 5.dp),
+                            .padding(start = 0.dp, end = 0.dp, top = 5.dp),
                         horizontalArrangement = Arrangement.SpaceBetween,
                         verticalAlignment = Alignment.CenterVertically
 
@@ -495,7 +541,7 @@ fun ProfileContent() {
                     Row(
                         modifier = Modifier
                             .fillMaxWidth()
-                            .padding(start = 20.dp, end = 20.dp, top = 5.dp),
+                            .padding(start = 0.dp, end = 0.dp, top = 5.dp),
                         horizontalArrangement = Arrangement.SpaceBetween,
                         verticalAlignment = Alignment.CenterVertically
 
@@ -542,7 +588,7 @@ fun ProfileContent() {
                     Row(
                         modifier = Modifier
                             .fillMaxWidth()
-                            .padding(start = 20.dp, end = 20.dp, top = 5.dp),
+                            .padding(start = 0.dp, end = 0.dp, top = 5.dp),
                         horizontalArrangement = Arrangement.SpaceBetween,
                         verticalAlignment = Alignment.CenterVertically
 
@@ -597,7 +643,7 @@ fun ProfileContent() {
                     ) {
                         Row (
                             modifier = Modifier
-                                .padding(start = 20.dp, end = 20.dp, top = 5.dp),
+                                .padding(start = 0.dp, end = 0.dp, top = 5.dp),
                             verticalAlignment = Alignment.CenterVertically
 
                         ){
