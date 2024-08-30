@@ -13,6 +13,11 @@
         android:theme="@style/Theme.Prolearn"
         tools:targetApi="31">
         <activity
+            android:name=".EditProfile"
+            android:exported="false"
+            android:label="@string/title_activity_edit_profile"
+            android:theme="@style/Theme.Prolearn" />
+        <activity
             android:name=".Profile"
             android:exported="true"
             android:label="@string/title_activity_profile"
@@ -27,14 +32,12 @@
             android:name=".TopicByAI"
             android:exported="false"
             android:label="@string/title_activity_topic_by_ai"
-            android:theme="@style/Theme.Prolearn">
-
-        </activity>
+            android:theme="@style/Theme.Prolearn"></activity>
         <activity
             android:name=".Quiz"
             android:exported="false"
             android:label="@string/title_activity_quiz"
-            android:theme="@style/Theme.Prolearn"></activity>
+            android:theme="@style/Theme.Prolearn" />
         <activity
             android:name=".QuizResult"
             android:exported="false"
