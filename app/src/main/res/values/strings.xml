@@ -43,5 +43,8 @@
     <string name="title_activity_topic_by_ai">TopicByAI</string>
     <string name="title_activity_profile">Profile</string>
     <string name="title_activity_edit_profile">EditProfile</string>
+    <string name="title_activity_point">Point</string>
+    <string name="title_activity_redeem">Redeem</string>
+    <string name="title_activity_earn">Earn</string>
 
 </resources>

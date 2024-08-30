@@ -1,6 +1,6 @@
 package com.example.prolearn
 
-import android.content.Context
+import  android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -8,7 +8,6 @@ import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
-import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -184,34 +183,39 @@ fun ProfileUpdateForm(context: Context) {
         }
         Spacer(modifier = Modifier.height(170.dp))
 
-        Text(
-            text = "Name",
-            modifier = Modifier
-                .padding(bottom = 10.dp),
-            fontWeight = FontWeight.Medium,
-            fontSize = 16.sp
-        )
-        OutlinedTextField(
-            value = username,
-            onValueChange = { username = it },
-            placeholder = { Text("Lee Nee") },
-            modifier = Modifier
-                .fillMaxWidth()
-                .clip(RoundedCornerShape(10.dp))
-                .height(55.dp),
-            colors = TextFieldDefaults.textFieldColors(
-                containerColor = Color.White,
-                focusedIndicatorColor = colorResource(id = R.color.light_grey) ,
-                unfocusedIndicatorColor = colorResource(id = R.color.light_grey),
-                disabledIndicatorColor = colorResource(id = R.color.light_grey),
-            ),
-            shape = RoundedCornerShape(10.dp),
-            singleLine = true,
-            keyboardOptions = KeyboardOptions.Default.copy(
-                keyboardType = KeyboardType.Email,
-                imeAction = ImeAction.Next
-            )
-        )
+        Box {
+            Column {
+                Text(
+                    text = "Name",
+                    modifier = Modifier
+                        .padding(bottom = 10.dp),
+                    fontWeight = FontWeight.Medium,
+                    fontSize = 16.sp
+                )
+                OutlinedTextField(
+                    value = username,
+                    onValueChange = { username = it },
+                    placeholder = { Text("Lee Nee") },
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .clip(RoundedCornerShape(10.dp))
+                        .height(55.dp),
+                    colors = TextFieldDefaults.textFieldColors(
+                        containerColor = Color.White,
+                        focusedIndicatorColor = colorResource(id = R.color.light_grey),
+                        unfocusedIndicatorColor = colorResource(id = R.color.light_grey),
+                        disabledIndicatorColor = colorResource(id = R.color.light_grey),
+                    ),
+                    shape = RoundedCornerShape(10.dp),
+                    singleLine = true,
+                    keyboardOptions = KeyboardOptions.Default.copy(
+                        keyboardType = KeyboardType.Email,
+                        imeAction = ImeAction.Next
+                    )
+                )
+            }
+        }
+        
         Spacer(modifier = Modifier.height(20.dp))
         Text(
             text = "Phone Number",
