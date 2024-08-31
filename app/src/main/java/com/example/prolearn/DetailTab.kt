@@ -186,6 +186,7 @@ fun DetailTabScreen() {
             0 -> About()
             1 -> Lessons()
             2 -> Reviews()
+
         }
     }
 }

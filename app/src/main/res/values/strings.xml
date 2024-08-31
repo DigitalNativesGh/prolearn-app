@@ -46,5 +46,7 @@
     <string name="title_activity_point">Point</string>
     <string name="title_activity_redeem">Redeem</string>
     <string name="title_activity_earn">Earn</string>
+    <string name="title_activity_cart">Cart</string>
+    <string name="title_activity_wishlist">Wishlist</string>
 
 </resources>
